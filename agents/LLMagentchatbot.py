@@ -34,15 +34,18 @@ web_search = TavilySearch(
     topic="general", 
     search_depth="basic"
 )
+#duck duck go search
+from langchain_community.tools import DuckDuckGoSearchRun
 
+duck_search = DuckDuckGoSearchRun()
 #create llm agent
 from langchain.agents import create_agent
-tools = [getweather, web_search]
+tools = [getweather, web_search, duck_search]
 agent = create_agent(
     model = llm, 
     tools = tools, 
     system_prompt="""
-    You are a helpful chatbot assistant. Use getweather tool for answering weather related queries. Use web_search tool for recent event, finance, news, pop culture and internet search. For normal chat conversation, don't use a tool, just answer on your own. 
+    You are a helpful chatbot assistant. Use getweather tool for answering weather related queries. Use web_search tool for recent events, finance, news, pop culture and internet search. Use web_search for any queries involving today or the current year (2026). Use duck_search when web_search is not available or returns no results. For normal chat conversation, don't use a tool, just answer on your own. 
 """
 )
 
@@ -57,4 +60,4 @@ final_result = agent.invoke({"messages": messages})
 
 # agent is stateful - it actually looks at different states, takes a dictionary
 
-print(final_result)
+print(final_result["messages"][-1].content)
