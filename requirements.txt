@@ -5,3 +5,8 @@ langchain_groq
 ipykernel
 langchain_google_genai
 python-dotenv
+langchain_tavily
+langchain_community
+duckduckgo-search
+ddgs
+langchain-tavily
