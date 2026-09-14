@@ -58,6 +58,7 @@ agent = create_agent(
 )
 
 #create a thread ID
+from uuid import uuid4
 thread_config = {"configurable":{"thread_id":1 }}
 
 # Create the weather app messages
