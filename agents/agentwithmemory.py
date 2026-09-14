@@ -70,9 +70,12 @@ while True:
         print("Bye!")
         exit()
     messages.append(HumanMessage(content=user_input))
+    try:
+        final_result = agent.invoke({"messages": messages}, thread_config)
+            # agent is stateful - it actually looks at different states, takes a dictionary
 
-    final_result = agent.invoke({"messages": messages}, thread_config)
-    # agent is stateful - it actually looks at different states, takes a dictionary
+        print(final_result["messages"][-1].content)
+    except Exception as e:
+        print(f"Error: {e}")
 
-    print(final_result["messages"][-1].content)
 
