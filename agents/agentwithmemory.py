@@ -59,7 +59,8 @@ agent = create_agent(
 
 #create a thread ID
 from uuid import uuid4
-thread_config = {"configurable":{"thread_id":1 }}
+thread_id = str(uuid4())
+thread_config = {"configurable":{"thread_id":thread_id }}
 
 # Create the weather app messages
 from langchain.messages import HumanMessage, SystemMessage
@@ -70,6 +71,11 @@ while True:
     if user_input.lower() in ["bye", "exit"]:
         print("Bye!")
         exit()
+    if user_input.lower().strip() == "/new":
+        thread_id = str(uuid4())
+        thread_config = {"configurable":{"thread_id":thread_id}}
+        print("Welcome to the new session...")
+        continue
     messages.append(HumanMessage(content=user_input))
     try:
         final_result = agent.invoke({"messages": messages}, thread_config)
