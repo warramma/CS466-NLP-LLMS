@@ -2616,6 +2616,7 @@ dependencies = [
     { name = "langchain-model-profiles" },
     { name = "langchain-openai" },
     { name = "langchain-tavily" },
+    { name = "langgraph" },
     { name = "python-dotenv" },
 ]
 
@@ -2636,6 +2637,7 @@ requires-dist = [
     { name = "langchain-model-profiles", specifier = ">=0.0.6" },
     { name = "langchain-openai", specifier = ">=1.6.0" },
     { name = "langchain-tavily", specifier = ">=0.2.18" },
+    { name = "langgraph", specifier = ">=1.2.11" },
     { name = "python-dotenv", specifier = ">=1.2.3" },
 ]
 
