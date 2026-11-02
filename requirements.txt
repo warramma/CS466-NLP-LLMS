@@ -12,3 +12,8 @@ duckduckgo-search
 ddgs
 langchain-tavily
 langgraph
+langchain_huggingface
+sentence-transformers
+langchain_chroma
+langchain-text-splitters
+pypdf
