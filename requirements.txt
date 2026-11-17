@@ -17,3 +17,4 @@ sentence-transformers
 langchain_chroma
 langchain-text-splitters
 pypdf
+pywin32
